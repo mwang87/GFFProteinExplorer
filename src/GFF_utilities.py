@@ -6,6 +6,7 @@ Created on Mar 24, 2016
 This file contains utility functions for loading and working with GFF files
 '''
 
+import json
 
 
 #Returns a dictionary by parsing the GFF gff
@@ -112,3 +113,49 @@ def parseGFF(gff_filename):
         else:
             continue
     return ref_seq_gff_dic
+
+#Taking the raw GFF dict written by seong
+#and making it a bit more manageable
+def transform_gff_dict(gff_dict):
+    new_gff_dict = {}
+
+    for chromosome in gff_dict:
+        print "Chromosome - " + chromosome
+
+        #Creating a list of genes per chromosome
+        new_gff_dict[chromosome] = []
+
+        all_genes_in_chromosome = gff_dict[chromosome]
+        for gene in all_genes_in_chromosome:
+            #For each gene, we will be adding a dictionary to keep all the relevant metadata
+            gene_dict = {}
+            gene_dict["start"] = gene[0]
+            gene_dict["end"] = gene[1]
+            gene_dict["name"] = gene[2]
+
+            print json.dumps(gene)
+
+            #print "gene - " + str(gene[2])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            #
