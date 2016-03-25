@@ -2,6 +2,8 @@
 Created on Mar 24, 2016
 
 @author: s3cha
+
+This file contains utility functions for loading and working with GFF files
 '''
 
 
@@ -110,8 +112,3 @@ def parseGFF(gff_filename):
         else:
             continue
     return ref_seq_gff_dic
-
-# gff = parseGFF('/home/s3cha/data/ProteoSaFe/ProteoSAFe-1.2.6_beta-linux64/server/resources/ref_gff/GRCh37.70/Homo_sapiens.GRCh37.70_formatted.gff')
-# for item in gff.get('chrX'):
-#     print item
-#     sys.exit()
