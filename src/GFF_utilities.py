@@ -134,9 +134,29 @@ def transform_gff_dict(gff_dict):
             gene_dict["name"] = gene[2]
             gene_dict["CDS_list"] = gene[4]
 
-            print json.dumps(gene)
+            #print json.dumps(gene)
+            new_gff_dict[chromosome].append(gene_dict)
 
-            #print "gene - " + str(gene[2])
+    return new_gff_dict
+
+#Assuming a rigid naming scheme for chromosomes
+def parse_chromosomes(chromosomes_folder):
+    all_files = [ os.path.join(directory,f) for f in os.listdir(chromosomes_folder) ]
+
+    for filename in all_files:
+        base_name = os.path.basename(filename)
+        print base_name
+
+    chromosome_map = {}
+    return chromosome_map
+
+
+def enrich_gff_dict_with_chromosome_data(gff_dict, chromosome_map):
+    for chromosome in gff_dict:
+        for gene in gff_dict[chromosome]:
+            print gene["start"]
+            print gene["end"]
+            chromosome_map[chromosome]
 
 
 
