@@ -132,6 +132,7 @@ def transform_gff_dict(gff_dict):
             gene_dict["start"] = gene[0]
             gene_dict["end"] = gene[1]
             gene_dict["name"] = gene[2]
+            gene_dict["CDS_list"] = gene[4]
 
             print json.dumps(gene)
 
